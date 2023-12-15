@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "@/styles/Home.module.css"; // Adjust the import path as necessary
 
-const Swipeable = ({ index, data, handleDeleteThought }) => {
+const Swipeable = ({ index, data }) => {
     const createSwipeHandlers = (index) => {
         let startX, currentX;
         let isDragging = false;
@@ -21,7 +21,7 @@ const Swipeable = ({ index, data, handleDeleteThought }) => {
             else if (deltaX < -maxSwipeDistance) deltaX = -maxSwipeDistance;
 
             e.target.style.transform = `translateX(${deltaX}px)`;
-        };
+            };
 
         const endHandler = (e) => {
             if (!isDragging) return;
@@ -52,7 +52,9 @@ const Swipeable = ({ index, data, handleDeleteThought }) => {
 
     return (
         <div className={styles.swipeable} {...swipeHandlers}>
-            <span>{data.title}</span>
+            <div className={styles.textContent}>
+                <span>{data.title}</span>
+            </div>
         </div>
     );
 };

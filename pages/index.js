@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "@/styles/Home.module.css";
 import AddThoughScreen from "@/components/AddThoughScreen";
+import Swipeable from "@/components/useSwipeHandlers ";
 
 export default function Home() {
     const [showAddThoughScreen, setShowAddThoughScreen] = useState(false);
@@ -27,52 +28,6 @@ export default function Home() {
         }
     }, [showColorSelector]);
 
-    const createSwipeHandlers = (index) => {
-        let startX, currentX;
-        let isDragging = false;
-        const maxSwipeDistance = 100;
-
-        const startHandler = (e) => {
-            startX = e.touches ? e.touches[0].clientX : e.clientX;
-            isDragging = true;
-        };
-
-        const moveHandler = (e) => {
-            if (!isDragging) return;
-            currentX = e.touches ? e.touches[0].clientX : e.clientX;
-            let deltaX = currentX - startX;
-
-            if (deltaX > maxSwipeDistance) deltaX = maxSwipeDistance;
-            else if (deltaX < -maxSwipeDistance) deltaX = -maxSwipeDistance;
-
-            e.target.style.transform = `translateX(${deltaX}px)`;
-        };
-
-        const endHandler = (e) => {
-            if (!isDragging) return;
-            isDragging = false;
-
-            if (Math.abs(currentX - startX) >= maxSwipeDistance) {
-                let finalTransform =
-                    currentX - startX > 0
-                        ? `translateX(${maxSwipeDistance}px)`
-                        : `translateX(${-maxSwipeDistance}px)`;
-                e.target.style.transform = finalTransform;
-            } else {
-                e.target.style.transform = "";
-            }
-        };
-
-        return {
-            onMouseDown: startHandler,
-            onMouseMove: moveHandler,
-            onMouseUp: endHandler,
-            onTouchStart: startHandler,
-            onTouchMove: moveHandler,
-            onTouchEnd: endHandler,
-        };
-    };
-
     const renderThoughts = () => {
         return thoughts.map((data, index) => (
             <div key={index} className={styles.mainThoughtContainer}>
@@ -83,6 +38,7 @@ export default function Home() {
                     }}
                     className={styles.colorContainer}
                 >
+                    {/* Color logo */}
                     <i
                         style={{ color: thoughts[index].color }}
                         className="fa-solid fa-o fa-2x"
@@ -95,15 +51,14 @@ export default function Home() {
                         }}
                         className={styles.deleteThough}
                     >
+                        {/* Delete logo */}
                         <i className="fa-solid fa-trash"></i>
                     </div>
-                    <div
-                        className={styles.swipeable}
-                        {...createSwipeHandlers(index)}
-                    >
-                        <span>{data.title}</span>
-                    </div>
-                    <div className={styles.editThough}>
+
+                    <Swipeable index={index} data={data} />
+
+                    <div onClick={() => {}} className={styles.editThough}>
+                        {/* Edit logo */}
                         <i className="fa-solid fa-pen-to-square"></i>
                     </div>
                 </div>
