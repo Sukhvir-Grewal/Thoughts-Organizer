@@ -1,0 +1,98 @@
+{
+    "sourceFile": "styles/AddThoughScreen.css",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 20,
+            "patches": [
+                {
+                    "date": 1702417349803,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1702417355328,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,4 @@\n+.backgroundBlur{\r\n+    position: absolute;\r\n+\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702417362152,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,5 @@\n+.backgroundBlur{\r\n+    position: absolute;\r\n+    height: 100;\r\n+\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702417367269,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,6 @@\n+.backgroundBlur{\r\n+    position: absolute;\r\n+    height: 100dvh;\r\n+    background-color: red;\r\n+\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702417375732,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,5 @@\n+.backgroundBlur {\r\n+    position: absolute;\r\n+    height: 100dvh;\r\n+    background-color: red;\r\n+}\r\n"
+                },
+                {
+                    "date": 1702417441093,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,6 @@\n+.backgroundBlur {\r\n+    position: absolute;\r\n+    height: 100dvh;\r\n+    width: 100%;\r\n+    background-color: red;\r\n+}\r\n"
+                },
+                {
+                    "date": 1702417519033,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,5 @@\n+.backgroundBlur {\r\n+    position: absolute;\r\n+    height: 100dvh;\r\n+    width: 100%;\r\n+}\r\n"
+                },
+                {
+                    "date": 1702417530100,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,6 @@\n+.backgroundBlur {\r\n+    position: absolute;\r\n+    height: 100dvh;\r\n+    width: 100%;\r\n+    backdrop-filter: blur();\r\n+}\r\n"
+                },
+                {
+                    "date": 1702417612954,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,10 @@\n+.backgroundBlur {\r\n+    position: absolute;\r\n+    height: 100dvh;\r\n+    width: 100%;\r\n+    backdrop-filter: blur(5px);\r\n+}\r\n+\r\n+.mainAddContainer{\r\n+    he\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702417619273,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,10 @@\n+.backgroundBlur {\r\n+    position: absolute;\r\n+    height: 100dvh;\r\n+    width: 100%;\r\n+    backdrop-filter: blur(5px);\r\n+}\r\n+\r\n+.mainAddContainer{\r\n+    hei\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702417627715,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,11 @@\n+.backgroundBlur {\r\n+    position: absolute;\r\n+    height: 100dvh;\r\n+    width: 100%;\r\n+    backdrop-filter: blur(5px);\r\n+}\r\n+\r\n+.mainAddContainer{\r\n+    height: 100px;\r\n+    background-color: red;\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702417642392,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,12 @@\n+.backgroundBlur {\r\n+    position: absolute;\r\n+    height: 100dvh;\r\n+    width: 100%;\r\n+    backdrop-filter: blur(5px);\r\n+}\r\n+\r\n+.mainAddContainer{\r\n+    position: absolute;\r\n+    height: 100px;\r\n+    background-color: red;\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702417652432,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,12 @@\n+.backgroundBlur {\r\n+    position: relative;\r\n+    height: 100dvh;\r\n+    width: 100%;\r\n+    backdrop-filter: blur(5px);\r\n+}\r\n+\r\n+.mainAddContainer{\r\n+    position: absolute;\r\n+    height: 100px;\r\n+    background-color: red;\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702417661609,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,12 @@\n+.backgroundBlur {\r\n+    position: absolute;\r\n+    height: 100dvh;\r\n+    width: 100%;\r\n+    backdrop-filter: blur(5px);\r\n+}\r\n+\r\n+.mainAddContainer{\r\n+    position: absolute;\r\n+    height: 100px;\r\n+    background-color: red;\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702417688464,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,11 @@\n+.backgroundBlur {\r\n+    position: absolute;\r\n+    height: 100dvh;\r\n+    width: 100%;\r\n+    backdrop-filter: blur(5px);\r\n+}\r\n+\r\n+.mainAddContainer{\r\n+    height: 100px;\r\n+    background-color: red;\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702417694225,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,117 +2,11 @@\n     position: absolute;\r\n     height: 100dvh;\r\n     width: 100%;\r\n     backdrop-filter: blur(5px);\r\n+    \r\n }\r\n \r\n .mainAddContainer{\r\n     height: 100px;\r\n     background-color: red;\r\n-}\n-.backgroundBlur {\r\n-    position: absolute;\r\n-    height: 100dvh;\r\n-    width: 100%;\r\n-    backdrop-filter: blur(5px);\r\n-}\r\n-\r\n-.mainAddContainer{\r\n-    position: absolute;\r\n-    height: 100px;\r\n-    background-color: red;\r\n-}\n-.backgroundBlur {\r\n-    position: relative;\r\n-    height: 100dvh;\r\n-    width: 100%;\r\n-    backdrop-filter: blur(5px);\r\n-}\r\n-\r\n-.mainAddContainer{\r\n-    position: absolute;\r\n-    height: 100px;\r\n-    background-color: red;\r\n-}\n-.backgroundBlur {\r\n-    position: absolute;\r\n-    height: 100dvh;\r\n-    width: 100%;\r\n-    backdrop-filter: blur(5px);\r\n-}\r\n-\r\n-.mainAddContainer{\r\n-    position: absolute;\r\n-    height: 100px;\r\n-    background-color: red;\r\n-}\n-.backgroundBlur {\r\n-    position: absolute;\r\n-    height: 100dvh;\r\n-    width: 100%;\r\n-    backdrop-filter: blur(5px);\r\n-}\r\n-\r\n-.mainAddContainer{\r\n-    height: 100px;\r\n-    background-color: red;\r\n-}\n-.backgroundBlur {\r\n-    position: absolute;\r\n-    height: 100dvh;\r\n-    width: 100%;\r\n-    backdrop-filter: blur(5px);\r\n-}\r\n-\r\n-.mainAddContainer{\r\n-    hei\r\n-}\n-.backgroundBlur {\r\n-    position: absolute;\r\n-    height: 100dvh;\r\n-    width: 100%;\r\n-    backdrop-filter: blur(5px);\r\n-}\r\n-\r\n-.mainAddContainer{\r\n-    he\r\n-}\n-.backgroundBlur {\r\n-    position: absolute;\r\n-    height: 100dvh;\r\n-    width: 100%;\r\n-    backdrop-filter: blur();\r\n-}\r\n-.backgroundBlur {\r\n-    position: absolute;\r\n-    height: 100dvh;\r\n-    width: 100%;\r\n-}\r\n-.backgroundBlur {\r\n-    position: absolute;\r\n-    height: 100dvh;\r\n-    width: 100%;\r\n-    background-color: red;\r\n-}\r\n-.backgroundBlur {\r\n-    position: absolute;\r\n-    height: 100dvh;\r\n-    background-color: red;\r\n-}\r\n-.backgroundBlur{\r\n-    position: absolute;\r\n-    height: 100dvh;\r\n-    background-color: red;\r\n-\r\n-}\n-.backgroundBlur{\r\n-    position: absolute;\r\n-    height: 100;\r\n-\r\n-}\n-.backgroundBlur{\r\n-    position: absolute;\r\n-\r\n-}\n-.backgroundBlur{\r\n-    po\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702417703522,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,13 @@\n+.backgroundBlur {\r\n+    position: absolute;\r\n+    height: 100dvh;\r\n+    width: 100%;\r\n+    backdrop-filter: blur(5px);\r\n+    display: grid;\r\n+    place-content: center;\r\n+}\r\n+\r\n+.mainAddContainer{\r\n+    height: 100px;\r\n+    background-color: red;\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702417731439,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,14 @@\n+.backgroundBlur {\r\n+    position: absolute;\r\n+    height: 100dvh;\r\n+    width: 100%;\r\n+    backdrop-filter: blur(5px);\r\n+    display: grid;\r\n+    place-content: center;\r\n+}\r\n+\r\n+.mainAddContainer{\r\n+    position: absolute;\r\n+    height: 100px;\r\n+    background-color: red;\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702417739038,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,13 @@\n+.backgroundBlur {\r\n+    position: absolute;\r\n+    height: 100dvh;\r\n+    width: 100%;\r\n+    backdrop-filter: blur(5px);\r\n+    display: grid;\r\n+    place-content: center;\r\n+}\r\n+\r\n+.mainAddContainer{\r\n+    height: 100px;\r\n+    background-color: red;\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702417746297,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,9 @@\n     position: absolute;\r\n     height: 100dvh;\r\n     width: 100%;\r\n     backdrop-filter: blur(5px);\r\n+    display: flex;\r\n }\r\n \r\n .mainAddContainer{\r\n     height: 100px;\r\n"
+                },
+                {
+                    "date": 1702417768754,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,12 @@\n+.backgroundBlur {\r\n+    position: absolute;\r\n+    height: 100dvh;\r\n+    width: 100%;\r\n+    backdrop-filter: blur(5px);\r\n+}\r\n+\r\n+.mainAddContainer{\r\n+    height: 100px;\r\n+    background-color: red;\r\n+    arig\r\n+}\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1702417349803,
+            "name": "Commit-0",
+            "content": ".backgroundBlur{\r\n    po\r\n}"
+        }
+    ]
+}

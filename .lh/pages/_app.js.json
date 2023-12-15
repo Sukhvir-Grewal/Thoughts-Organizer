@@ -1,0 +1,22 @@
+{
+    "sourceFile": "pages/_app.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1702417384619,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1702438176472,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n import '@/styles/globals.css'\n-import '@/styles/globals.css'\n+import '@/styles/AddThoughScreen.css'\n+import '@/styles/AddThoughScreen.css'\n \n export default function App({ Component, pageProps }) {\n   return <Component {...pageProps} />\n }\n"
+                }
+            ],
+            "date": 1702417384619,
+            "name": "Commit-0",
+            "content": "import '@/styles/globals.css'\nimport '@/styles/globals.css'\n\nexport default function App({ Component, pageProps }) {\n  return <Component {...pageProps} />\n}\n"
+        }
+    ]
+}

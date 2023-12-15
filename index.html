@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <style>
+        body {
+            height: 100vh;
+            background-color: black;
+            display: grid;
+            place-content: center;
+            overflow: hidden;
+        }
+        .container {
+            height: 100px;
+            width: 300px;
+            background-color: white;
+            overflow: hidden;
+        }
+        .swipeable {
+            height: 100%;
+            width: 100%;
+            background-color: red;
+            transition: transform 0.3s ease;
+        }
+    </style>
+    <body>
+        <div class="container">
+            <div class="swipeable"></div>
+        </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                var swipeable = document.querySelector(".swipeable");
+                var startX, currentX;
+                var isDragging = false; // To track if mouse drag is active
+                const maxSwipeDistance = 100;
+
+                // Function to handle the start of a swipe/drag
+                function startHandler(e) {
+                    startX = e.touches ? e.touches[0].clientX : e.clientX;
+                    isDragging = true;
+                }
+
+                // Function to handle the move of a swipe/drag
+                function moveHandler(e) {
+                    if (!isDragging) return;
+                    currentX = e.touches ? e.touches[0].clientX : e.clientX;
+                    var deltaX = currentX - startX;
+                    if (deltaX > maxSwipeDistance) deltaX = maxSwipeDistance;
+                    else if (deltaX < -maxSwipeDistance)
+                        deltaX = -maxSwipeDistance;
+                    swipeable.style.transform = `translateX(${deltaX}px)`;
+                }
+
+                // Function to handle the end of a swipe/drag
+                function endHandler(e) {
+                    if (!isDragging) return;
+                    isDragging = false;
+
+                    // Keep the element at its swiped position or reset
+                    if (Math.abs(currentX - startX) >= maxSwipeDistance) {
+                        // Keep the element at its maximum swiped position
+                        let finalTransform =
+                            currentX - startX > 0
+                                ? `translateX(${maxSwipeDistance}px)`
+                                : `translateX(${-maxSwipeDistance}px)`;
+                        swipeable.style.transform = finalTransform;
+                    } else {
+                        // Reset position if swipe was not long enough
+                        swipeable.style.transform = "";
+                    }
+                }
+
+                // Touch events
+                swipeable.addEventListener("touchstart", startHandler);
+                swipeable.addEventListener("touchmove", moveHandler);
+                swipeable.addEventListener("touchend", endHandler);
+
+                // Mouse events
+                swipeable.addEventListener("mousedown", startHandler);
+                document.addEventListener("mousemove", moveHandler);
+                document.addEventListener("mouseup", endHandler);
+            });
+        </script>
+    </body>
+</html>

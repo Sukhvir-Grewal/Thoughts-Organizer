@@ -1,0 +1,46 @@
+{
+    "sourceFile": ".vscode/settings.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 7,
+            "patches": [
+                {
+                    "date": 1702415119451,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1702415136486,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n {\r\n     \"files.exclude\": {\r\n-        \"package.json\": true\r\n+        \"package.json\": true,\r\n+        \"**/package.json\": true\r\n     }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702415146100,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n {\r\n     \"files.exclude\": {\r\n         \"package.json\": true,\r\n-        \"**/package.json\": true\r\n+        \"**/package.json\": true,\r\n+        \"**/package-lock.json\": true\r\n     }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702415216921,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n {\r\n     \"files.exclude\": {\r\n         \"package.json\": true,\r\n         \"**/package.json\": true,\r\n-        \"**/package-lock.json\": true\r\n+        \"**/package-lock.json\": true,\r\n+        \"jsconfig.json\": true\r\n     }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702415225348,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,7 +2,8 @@\n     \"files.exclude\": {\r\n         \"package.json\": true,\r\n         \"**/package.json\": true,\r\n         \"**/package-lock.json\": true,\r\n-        \"jsconfig.json\": true\r\n+        \"jsconfig.json\": true,\r\n+        \".gitignore\": true\r\n     }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702415236755,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,7 +3,9 @@\n         \"package.json\": true,\r\n         \"**/package.json\": true,\r\n         \"**/package-lock.json\": true,\r\n         \"jsconfig.json\": true,\r\n-        \".gitignore\": true\r\n+        \".gitignore\": true,\r\n+        \".eslintrc.json\": true,\r\n+        \".next\": true\r\n     }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702415247452,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,7 +5,9 @@\n         \"**/package-lock.json\": true,\r\n         \"jsconfig.json\": true,\r\n         \".gitignore\": true,\r\n         \".eslintrc.json\": true,\r\n-        \".next\": true\r\n+        \".next\": true,\r\n+        \".vscode\": true,\r\n+        \".lh\": true\r\n     }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702415264759,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,7 +7,9 @@\n         \".gitignore\": true,\r\n         \".eslintrc.json\": true,\r\n         \".next\": true,\r\n         \".vscode\": true,\r\n-        \".lh\": true\r\n+        \".lh\": true,\r\n+        \"node_modules\": true,\r\n+        \"next.config.js\": true\r\n     }\r\n }\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1702415119451,
+            "name": "Commit-0",
+            "content": "{\r\n    \"files.exclude\": {\r\n        \"package.json\": true\r\n    }\r\n}"
+        }
+    ]
+}

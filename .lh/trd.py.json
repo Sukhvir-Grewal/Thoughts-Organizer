@@ -1,0 +1,58 @@
+{
+    "sourceFile": "trd.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 10,
+            "patches": [
+                {
+                    "date": 1702495141724,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1702495161264,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,8 @@\n+import heapq\r\n+import matplotlib.pyplot as plt\r\n+import networkx as nx\r\n+\r\n # Given values for the max heap\r\n max_heap_values = [30, 28, 10, 5, 55, 20, 35, 65, 2, 24, 19]\r\n \r\n # In Python, heapq module only provides a min heap implementation.\r\n@@ -8,9 +12,9 @@\n     heapq.heappush(max_heap, -value)  # Pushing negated value to simulate max heap\r\n \r\n # Now converting the max_heap to a binary tree representation\r\n # We need to negate the values back to their original form\r\n-max_heap_array = [-x for x in max_heap]\r\n+max_heap_array = [-x for x in heapq.nsmallest(len(max_heap), max_heap)]\r\n \r\n # Creating a complete binary tree from the max heap\r\n G_max_heap = draw_complete_binary_tree(max_heap_array)\r\n \r\n"
+                },
+                {
+                    "date": 1702518423762,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,27 +1,22 @@\n-import heapq\r\n-import matplotlib.pyplot as plt\r\n-import networkx as nx\r\n+class Solution:\r\n+    def majorityElement(self, nums: List[int]) -> int:\r\n+        majority = 0\r\n+        currCount = 0\r\n+        currPos = 0\r\n+        majorityPos = 0\r\n+        for i in range(0,len(nums)):\r\n+            currPos = nums[i]\r\n+            for j in range(len(nums)):\r\n+                if(currPos == nums[j]):\r\n+                    currCount +=1\r\n+            if(currCount>majority):\r\n+                majority = currCount\r\n+                majorityPos = currPos\r\n \r\n-# Given values for the max heap\r\n-max_heap_values = [30, 28, 10, 5, 55, 20, 35, 65, 2, 24, 19]\r\n \r\n-# In Python, heapq module only provides a min heap implementation.\r\n-# To create a max heap, we can invert the values during insertion and retrieval.\r\n-max_heap = []\r\n-for value in max_heap_values:\r\n-    heapq.heappush(max_heap, -value)  # Pushing negated value to simulate max heap\r\n \r\n-# Now converting the max_heap to a binary tree representation\r\n-# We need to negate the values back to their original form\r\n-max_heap_array = [-x for x in heapq.nsmallest(len(max_heap), max_heap)]\r\n+        return majorityPos\r\n \r\n-# Creating a complete binary tree from the max heap\r\n-G_max_heap = draw_complete_binary_tree(max_heap_array)\r\n \r\n-# Plotting\r\n-plt.figure(figsize=(10, 8))\r\n-pos = nx.drawing.nx_agraph.graphviz_layout(G_max_heap, prog='dot')\r\n-labels = nx.get_node_attributes(G_max_heap, 'label')\r\n-nx.draw(G_max_heap, pos, with_labels=True, labels=labels, node_size=2000, node_color='lightblue')\r\n-plt.title('Complete Binary Tree - Max Heap')\r\n-plt.show()\r\n+\r\n+\r\n"
+                },
+                {
+                    "date": 1702518430478,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,20 +3,14 @@\n         majority = 0\r\n         currCount = 0\r\n         currPos = 0\r\n         majorityPos = 0\r\n-        for i in range(0,len(nums)):\r\n+        for i in range(0, len(nums)):\r\n             currPos = nums[i]\r\n             for j in range(len(nums)):\r\n-                if(currPos == nums[j]):\r\n-                    currCount +=1\r\n-            if(currCount>majority):\r\n+                if (currPos == nums[j]):\r\n+                    currCount += 1\r\n+            if (currCount > majority):\r\n                 majority = currCount\r\n                 majorityPos = currPos\r\n \r\n-\r\n-\r\n         return majorityPos\r\n-\r\n-\r\n-\r\n-\r\n"
+                },
+                {
+                    "date": 1702518436593,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,15 @@\n+def majorityElement(self, nums: List[int]) -> int:\r\n+    majority = 0\r\n+    currCount = 0\r\n+    currPos = 0\r\n+    majorityPos = 0\r\n+    for i in range(0, len(nums)):\r\n+        currPos = nums[i]\r\n+        for j in range(len(nums)):\r\n+            if (currPos == nums[j]):\r\n+                currCount += 1\r\n+        if (currCount > majority):\r\n+            majority = currCount\r\n+            majorityPos = currPos\r\n+\r\n+    return majorityPos\r\n"
+                },
+                {
+                    "date": 1702518447264,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,20 +12,7 @@\n             majority = currCount\r\n             majorityPos = currPos\r\n \r\n     return majorityPos\r\n-class Solution:\r\n-    def majorityElement(self, nums: List[int]) -> int:\r\n-        majority = 0\r\n-        currCount = 0\r\n-        currPos = 0\r\n-        majorityPos = 0\r\n-        for i in range(0, len(nums)):\r\n-            currPos = nums[i]\r\n-            for j in range(len(nums)):\r\n-                if (currPos == nums[j]):\r\n-                    currCount += 1\r\n-            if (currCount > majority):\r\n-                majority = currCount\r\n-                majorityPos = currPos\r\n \r\n-        return majorityPos\r\n+\r\n+arr = [3, 3, 4]\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702518455160,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,19 @@\n+def majorityElement(self, nums: List[int]) -> int:\r\n+    majority = 0\r\n+    currCount = 0\r\n+    currPos = 0\r\n+    majorityPos = 0\r\n+    for i in range(0, len(nums)):\r\n+        currPos = nums[i]\r\n+        for j in range(len(nums)):\r\n+            if (currPos == nums[j]):\r\n+                currCount += 1\r\n+        if (currCount > majority):\r\n+            majority = currCount\r\n+            majorityPos = currPos\r\n+\r\n+    return majorityPos\r\n+\r\n+\r\n+arr = [3, 3, 4]\r\n+print()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702518463563,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,23 +15,5 @@\n     return majorityPos\r\n \r\n \r\n arr = [3, 3, 4]\r\n-print()\n-def majorityElement(self, nums: List[int]) -> int:\r\n-    majority = 0\r\n-    currCount = 0\r\n-    currPos = 0\r\n-    majorityPos = 0\r\n-    for i in range(0, len(nums)):\r\n-        currPos = nums[i]\r\n-        for j in range(len(nums)):\r\n-            if (currPos == nums[j]):\r\n-                currCount += 1\r\n-        if (currCount > majority):\r\n-            majority = currCount\r\n-            majorityPos = currPos\r\n-\r\n-    return majorityPos\r\n-\r\n-\r\n-arr = [3, 3, 4]\n\\ No newline at end of file\n+print(majo)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702518470830,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,19 @@\n+def majorityElement(self, nums: List[int]) -> int:\r\n+    majority = 0\r\n+    currCount = 0\r\n+    currPos = 0\r\n+    majorityPos = 0\r\n+    for i in range(0, len(nums)):\r\n+        currPos = nums[i]\r\n+        for j in range(len(nums)):\r\n+            if (currPos == nums[j]):\r\n+                currCount += 1\r\n+        if (currCount > majority):\r\n+            majority = currCount\r\n+            majorityPos = currPos\r\n+\r\n+    return majorityPos\r\n+\r\n+\r\n+arr = [3, 3, 4]\r\n+print(majorityElement)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702518475968,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-def majorityElement(, nums: List[int]) -> int:\r\n+def majorityElement, nums: List[int]) -> int:\r\n     majority = 0\r\n     currCount = 0\r\n     currPos = 0\r\n     majorityPos = 0\r\n"
+                },
+                {
+                    "date": 1702518484049,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,19 @@\n+def majorityElement( nums) -> int:\r\n+    majority = 0\r\n+    currCount = 0\r\n+    currPos = 0\r\n+    majorityPos = 0\r\n+    for i in range(0, len(nums)):\r\n+        currPos = nums[i]\r\n+        for j in range(len(nums)):\r\n+            if (currPos == nums[j]):\r\n+                currCount += 1\r\n+        if (currCount > majority):\r\n+            majority = currCount\r\n+            majorityPos = currPos\r\n+\r\n+    return majorityPos\r\n+\r\n+\r\n+arr = [3, 3, 4]\r\n+print(majorityElement())\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1702495141724,
+            "name": "Commit-0",
+            "content": "# Given values for the max heap\r\nmax_heap_values = [30, 28, 10, 5, 55, 20, 35, 65, 2, 24, 19]\r\n\r\n# In Python, heapq module only provides a min heap implementation.\r\n# To create a max heap, we can invert the values during insertion and retrieval.\r\nmax_heap = []\r\nfor value in max_heap_values:\r\n    heapq.heappush(max_heap, -value)  # Pushing negated value to simulate max heap\r\n\r\n# Now converting the max_heap to a binary tree representation\r\n# We need to negate the values back to their original form\r\nmax_heap_array = [-x for x in max_heap]\r\n\r\n# Creating a complete binary tree from the max heap\r\nG_max_heap = draw_complete_binary_tree(max_heap_array)\r\n\r\n# Plotting\r\nplt.figure(figsize=(10, 8))\r\npos = nx.drawing.nx_agraph.graphviz_layout(G_max_heap, prog='dot')\r\nlabels = nx.get_node_attributes(G_max_heap, 'label')\r\nnx.draw(G_max_heap, pos, with_labels=True, labels=labels, node_size=2000, node_color='lightblue')\r\nplt.title('Complete Binary Tree - Max Heap')\r\nplt.show()\r\n"
+        }
+    ]
+}

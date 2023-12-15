@@ -1,0 +1,30 @@
+{
+    "sourceFile": "README.md",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1702415276039,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1702415287763,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,1 @@\n+Started At 4:08 pm \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702415293771,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,1 @@\n-Started At 4:08 pm \n\\ No newline at end of file\n+Started At 4:08 pm // 2023\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702415298944,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,1 @@\n-Started At 4:08 pm // 2023\n\\ No newline at end of file\n+Started At 4:08 pm // 2023-12-12\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1702415276039,
+            "name": "Commit-0",
+            "content": ""
+        }
+    ]
+}

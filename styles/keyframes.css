@@ -1,0 +1,31 @@
+@keyframes pop {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes popOut {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(0);
+    }
+}
+@keyframes slideUp {
+    from {
+        opacity: 1;
+        max-height: 500px; 
+    }
+    to {
+        opacity: 0;
+        max-height: 0;
+    }
+}
+
+.deleteAnimation {
+    animation: slideUp 0.5s ease forwards;
+}

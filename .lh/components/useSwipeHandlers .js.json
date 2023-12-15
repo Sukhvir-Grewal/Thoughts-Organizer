@@ -1,0 +1,18 @@
+{
+    "sourceFile": "components/useSwipeHandlers .js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1702671828349,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1702671828349,
+            "name": "Commit-0",
+            "content": "import { useState } from 'react';\r\n\r\nconst useSwipeHandlers = () => {\r\n    const [startX, setStartX] = useState(0);\r\n    const [isDragging, setIsDragging] = useState(false);\r\n    const maxSwipeDistance = 100;\r\n\r\n    const startHandler = (e) => {\r\n        const clientX = e.touches ? e.touches[0].clientX : e.clientX;\r\n        setStartX(clientX);\r\n        setIsDragging(true);\r\n    };\r\n\r\n    const moveHandler = (e) => {\r\n        if (!isDragging) return;\r\n        const currentX = e.touches ? e.touches[0].clientX : e.clientX;\r\n        let deltaX = currentX - startX;\r\n\r\n        if (deltaX > maxSwipeDistance) deltaX = maxSwipeDistance;\r\n        else if (deltaX < -maxSwipeDistance) deltaX = -maxSwipeDistance;\r\n\r\n        e.target.style.transform = `translateX(${deltaX}px)`;\r\n    };\r\n\r\n    const endHandler = (e) => {\r\n        if (!isDragging) return;\r\n        setIsDragging(false);\r\n        const currentX = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;\r\n\r\n        if (Math.abs(currentX - startX) >= maxSwipeDistance) {\r\n            const finalTransform = currentX - startX > 0 ? `translateX(${maxSwipeDistance}px)` : `translateX(${-maxSwipeDistance}px)`;\r\n            e.target.style.transform = finalTransform;\r\n        } else {\r\n            e.target.style.transform = '';\r\n        }\r\n    };\r\n\r\n    return {\r\n        onMouseDown: startHandler,\r\n        onMouseMove: moveHandler,\r\n        onMouseUp: endHandler,\r\n        onTouchStart: startHandler,\r\n        onTouchMove: moveHandler,\r\n        onTouchEnd: endHandler,\r\n    };\r\n};\r\n\r\nexport default useSwipeHandlers;\r\n"
+        }
+    ]
+}
