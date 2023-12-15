@@ -7,6 +7,15 @@ export default function Home() {
     const [showColorSelector, setShowColorSelector] = useState(false);
     const [thoughts, setThoughts] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(-1);
+
+    const colors = [
+        { name: "urgent", color: "red" },
+        { name: "important", color: "orange" },
+        { name: "moderate", color: "lightBlue" },
+        { name: "fine", color: "lightGreen" },
+        { name: "minor", color: "green" },
+    ];
+
     const colorSelectorContainerRef = useRef(null);
 
     useEffect(() => {
@@ -123,180 +132,58 @@ export default function Home() {
         }, 500);
     };
 
+    const renderColorOptions = () => {
+        return (
+            <div className="backgroundBlur">
+                <div
+                    ref={colorSelectorContainerRef}
+                    className={styles.colorSelectorContainer}
+                >
+                    {colors.map((color, i) => (
+                        <div
+                            onClick={() => {
+                                setThoughts((currentThoughts) =>
+                                    currentThoughts.map((thought, index) =>
+                                        index === currentIndex
+                                            ? { ...thought, color: color.color }
+                                            : thought
+                                    )
+                                );
+                                if (colorSelectorContainerRef.current) {
+                                    colorSelectorContainerRef.current.classList.add(
+                                        "popOut"
+                                    );
+                                }
+                                setTimeout(() => {
+                                    colorSelectorContainerRef.current.classList.remove(
+                                        "popOut"
+                                    );
+                                    setShowColorSelector(false);
+                                }, 200);
+                            }}
+                            className={styles.colorSelector}
+                        >
+                            <i
+                                style={{ color: color.color }}
+                                className="fa-solid fa-o fa-2x"
+                            ></i>
+                            <span style={{ marginLeft: "10px" }}>
+                                {color.name}
+                            </span>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        );
+    };
+
     return (
         <>
             <div className={styles.mainContainer}>
-                {showColorSelector && (
-                    <div className="backgroundBlur">
-                        <div
-                            ref={colorSelectorContainerRef}
-                            className={styles.colorSelectorContainer}
-                        >
-                            <div
-                                onClick={() => {
-                                    setThoughts((currentThoughts) =>
-                                        currentThoughts.map((thought, index) =>
-                                            index === currentIndex
-                                                ? { ...thought, color: "red" }
-                                                : thought
-                                        )
-                                    );
-                                    if (colorSelectorContainerRef.current) {
-                                        colorSelectorContainerRef.current.classList.add(
-                                            "popOut"
-                                        );
-                                    }
-                                    setTimeout(() => {
-                                        colorSelectorContainerRef.current.classList.remove(
-                                            "popOut"
-                                        );
-                                        setShowColorSelector(false);
-                                    }, 200);
-                                }}
-                                className={styles.colorSelector}
-                            >
-                                <i
-                                    style={{ color: "red" }}
-                                    className="fa-solid fa-o fa-2x"
-                                ></i>
-                                <span style={{ marginLeft: "10px" }}>
-                                    urgent
-                                </span>
-                            </div>
-                            <div
-                                onClick={() => {
-                                    setThoughts((currentThoughts) =>
-                                        currentThoughts.map((thought, index) =>
-                                            index === currentIndex
-                                                ? {
-                                                      ...thought,
-                                                      color: "orange",
-                                                  }
-                                                : thought
-                                        )
-                                    );
-                                    if (colorSelectorContainerRef.current) {
-                                        colorSelectorContainerRef.current.classList.add(
-                                            "popOut"
-                                        );
-                                    }
-                                    setTimeout(() => {
-                                        colorSelectorContainerRef.current.classList.remove(
-                                            "popOut"
-                                        );
-                                        setShowColorSelector(false);
-                                    }, 200);
-                                }}
-                                className={styles.colorSelector}
-                            >
-                                <i
-                                    style={{ color: "orange" }}
-                                    className="fa-solid fa-o fa-2x"
-                                ></i>
-                                <span style={{ marginLeft: "10px" }}>
-                                    important
-                                </span>
-                            </div>
-                            <div
-                                onClick={() => {
-                                    setThoughts((currentThoughts) =>
-                                        currentThoughts.map((thought, index) =>
-                                            index === currentIndex
-                                                ? {
-                                                      ...thought,
-                                                      color: "lightBlue",
-                                                  }
-                                                : thought
-                                        )
-                                    );
-                                    if (colorSelectorContainerRef.current) {
-                                        colorSelectorContainerRef.current.classList.add(
-                                            "popOut"
-                                        );
-                                    }
-                                    setTimeout(() => {
-                                        colorSelectorContainerRef.current.classList.remove(
-                                            "popOut"
-                                        );
-                                        setShowColorSelector(false);
-                                    }, 200);
-                                }}
-                                className={styles.colorSelector}
-                            >
-                                <i
-                                    style={{ color: "lightBlue" }}
-                                    className="fa-solid fa-o fa-2x"
-                                ></i>
-                                <span style={{ marginLeft: "10px" }}>
-                                    moderate
-                                </span>
-                            </div>
-                            <div
-                                onClick={() => {
-                                    setThoughts((currentThoughts) =>
-                                        currentThoughts.map((thought, index) =>
-                                            index === currentIndex
-                                                ? {
-                                                      ...thought,
-                                                      color: "lightGreen",
-                                                  }
-                                                : thought
-                                        )
-                                    );
-                                    if (colorSelectorContainerRef.current) {
-                                        colorSelectorContainerRef.current.classList.add(
-                                            "popOut"
-                                        );
-                                    }
-                                    setTimeout(() => {
-                                        colorSelectorContainerRef.current.classList.remove(
-                                            "popOut"
-                                        );
-                                        setShowColorSelector(false);
-                                    }, 200);
-                                }}
-                                className={styles.colorSelector}
-                            >
-                                <i
-                                    style={{ color: "lightGreen" }}
-                                    className="fa-solid fa-o fa-2x"
-                                ></i>
-                                <span style={{ marginLeft: "10px" }}>fine</span>
-                            </div>
-                            <div
-                                onClick={() => {
-                                    setThoughts((currentThoughts) =>
-                                        currentThoughts.map((thought, index) =>
-                                            index === currentIndex
-                                                ? { ...thought, color: "green" }
-                                                : thought
-                                        )
-                                    );
-                                    if (colorSelectorContainerRef.current) {
-                                        colorSelectorContainerRef.current.classList.add(
-                                            "popOut"
-                                        );
-                                    }
-                                    setTimeout(() => {
-                                        colorSelectorContainerRef.current.classList.remove(
-                                            "popOut"
-                                        );
-                                        setShowColorSelector(false);
-                                    }, 200);
-                                }}
-                                className={styles.colorSelector}
-                            >
-                                <i
-                                    style={{ color: "green" }}
-                                    className="fa-solid fa-o fa-2x"
-                                ></i>
-                                <span style={{ marginLeft: "10px" }}>
-                                    minor
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                )}
+                {/* This is to display the priority selector */}
+                {showColorSelector && renderColorOptions()}
+
+                {/* This is to add new though */}
                 {showAddThoughScreen && (
                     <AddThoughScreen
                         setShowAddThoughScreen={setShowAddThoughScreen}
