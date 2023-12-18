@@ -5,13 +5,20 @@ import { useForm } from "react-hook-form";
 export default function AddThoughScreen({
     setShowAddThoughScreen,
     setThoughts,
+    currentIndex,
+    currentTitle,
+    currentDescription,
+    isEditing,
+    setIsEditing,
 }) {
     const mainContainerRef = useRef(null);
+    const descriptionRef = useRef(null);
+    const textRef = useRef(null);
 
     const { register, handleSubmit } = useForm({
         defaultValues: {
-            title: "",
-            description: "",
+            title: isEditing ? currentTitle : "",
+            description: isEditing ? currentDescription : "",
             color: "black",
         },
     });
@@ -24,19 +31,23 @@ export default function AddThoughScreen({
                     <p style={{ color: "white" }}>{label}</p>
                     {isTestArea ? (
                         <textarea
+                            ref={descriptionRef}
                             className="description"
                             type="text"
                             id={name}
                             {...register(name)}
+                            placeholder="Now let's add some details"
                         />
                     ) : (
                         <input
+                            ref={textRef}
                             className="text"
                             type="text"
                             id={name}
                             {...register(name)}
                             required
                             autoFocus
+                            placeholder="Keep It Simple"
                         />
                     )}
                 </div>
@@ -50,11 +61,20 @@ export default function AddThoughScreen({
             mainContainerRef.current.classList.remove("popOut");
             setShowAddThoughScreen(false);
         }, 300);
+        setIsEditing(false);
     };
 
     const submitForm = (data, e) => {
         const newData = { title: data.title, description: data.description };
-        setThoughts((prevThoughts) => [...prevThoughts, newData]);
+        if (isEditing) {
+            setThoughts((prevThoughts) =>
+                prevThoughts.map((item, index) =>
+                    index === currentIndex ? { ...item, ...newData } : item
+                )
+            );
+        } else {
+            setThoughts((prevThoughts) => [...prevThoughts, newData]);
+        }
         handleButtonClick();
     };
     return (
@@ -90,7 +110,7 @@ export default function AddThoughScreen({
                             className="btnMargin"
                             variant="success"
                         >
-                            Add
+                            {isEditing ? <p>Edit</p> : <p>Add</p>}
                         </Button>
                     </div>
                 </form>

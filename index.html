@@ -14,74 +14,128 @@
             overflow: hidden;
         }
         .container {
-            height: 100px;
-            width: 300px;
-            background-color: white;
-            overflow: hidden;
+            height: 300px;
+            width: 200px;
+            background-color: gray;
         }
-        .swipeable {
-            height: 100%;
-            width: 100%;
+        .container > div {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .box1 {
+            height: 150px;
+            width: 200px;
             background-color: red;
-            transition: transform 0.3s ease;
+            cursor: pointer;
+            border: 1px solid;
+        }
+        .box2 {
+            height: 150px;
+            width: 200px;
+            background-color: green;
+            cursor: pointer;
+            border: 1px solid;
+        }
+        .box3 {
+            height: 150px;
+            width: 200px;
+            background-color: blue;
+            cursor: pointer;
+            border: 1px solid;
+        }
+        .dragging {
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+            transform: scale(1.05);
+            z-index: 1000; /* Ensures the dragging element is above others */
         }
     </style>
     <body>
         <div class="container">
-            <div class="swipeable"></div>
+            <div class="box1"></div>
+            <div class="box2"></div>
+            <div class="box3"></div>
         </div>
         <script>
             document.addEventListener("DOMContentLoaded", function () {
-                var swipeable = document.querySelector(".swipeable");
-                var startX, currentX;
-                var isDragging = false; // To track if mouse drag is active
-                const maxSwipeDistance = 100;
+                const container = document.querySelector(".container");
+                let dragSrcEl = null;
+                let isDragging = false;
 
-                // Function to handle the start of a swipe/drag
-                function startHandler(e) {
-                    startX = e.touches ? e.touches[0].clientX : e.clientX;
+                function handleDragStart(e) {
+                    dragSrcEl = this;
                     isDragging = true;
+                    this.classList.add("dragging");
                 }
 
-                // Function to handle the move of a swipe/drag
-                function moveHandler(e) {
-                    if (!isDragging) return;
-                    currentX = e.touches ? e.touches[0].clientX : e.clientX;
-                    var deltaX = currentX - startX;
-                    if (deltaX > maxSwipeDistance) deltaX = maxSwipeDistance;
-                    else if (deltaX < -maxSwipeDistance)
-                        deltaX = -maxSwipeDistance;
-                    swipeable.style.transform = `translateX(${deltaX}px)`;
-                }
-
-                // Function to handle the end of a swipe/drag
-                function endHandler(e) {
-                    if (!isDragging) return;
-                    isDragging = false;
-
-                    // Keep the element at its swiped position or reset
-                    if (Math.abs(currentX - startX) >= maxSwipeDistance) {
-                        // Keep the element at its maximum swiped position
-                        let finalTransform =
-                            currentX - startX > 0
-                                ? `translateX(${maxSwipeDistance}px)`
-                                : `translateX(${-maxSwipeDistance}px)`;
-                        swipeable.style.transform = finalTransform;
-                    } else {
-                        // Reset position if swipe was not long enough
-                        swipeable.style.transform = "";
+                function handleDragOver(e) {
+                    if (isDragging) {
+                        e.preventDefault(); // Necessary for allowing drop
                     }
                 }
 
-                // Touch events
-                swipeable.addEventListener("touchstart", startHandler);
-                swipeable.addEventListener("touchmove", moveHandler);
-                swipeable.addEventListener("touchend", endHandler);
+                function handleDrop(target) {
+                    if (dragSrcEl !== target) {
+                        let draggedIndex = Array.from(
+                            container.children
+                        ).indexOf(dragSrcEl);
+                        let targetIndex = Array.from(
+                            container.children
+                        ).indexOf(target);
 
-                // Mouse events
-                swipeable.addEventListener("mousedown", startHandler);
-                document.addEventListener("mousemove", moveHandler);
-                document.addEventListener("mouseup", endHandler);
+                        if (draggedIndex < targetIndex) {
+                            container.insertBefore(
+                                dragSrcEl,
+                                target.nextSibling
+                            );
+                        } else {
+                            container.insertBefore(dragSrcEl, target);
+                        }
+                    }
+                }
+
+                function handleDragEnd() {
+                    isDragging = false;
+                    Array.from(container.children).forEach(function (box) {
+                        box.classList.remove("dragging");
+                    });
+                }
+
+                function handleTouchMove(e) {
+                    if (!isDragging) return;
+
+                    var touchLocation = e.targetTouches[0];
+                    var targetElement = document.elementFromPoint(
+                        touchLocation.clientX,
+                        touchLocation.clientY
+                    );
+
+                    if (
+                        targetElement &&
+                        targetElement !== dragSrcEl &&
+                        targetElement.parentNode === container
+                    ) {
+                        handleDrop(targetElement);
+                    }
+                }
+
+                Array.from(container.children).forEach(function (box) {
+                    // Mouse Events
+                    box.addEventListener("dragstart", handleDragStart);
+                    box.addEventListener("dragover", handleDragOver);
+                    box.addEventListener("dragend", handleDragEnd);
+                    box.addEventListener("drop", (e) => handleDrop(e.target));
+
+                    // Touch Events
+                    box.addEventListener("touchstart", handleDragStart, {
+                        passive: true,
+                    });
+                    box.addEventListener("touchmove", handleTouchMove, {
+                        passive: false,
+                    });
+                    box.addEventListener("touchend", handleDragEnd, {
+                        passive: true,
+                    });
+                });
             });
         </script>
     </body>
