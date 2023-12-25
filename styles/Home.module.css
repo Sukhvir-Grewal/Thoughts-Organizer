@@ -119,7 +119,6 @@
     transition: opacity 300ms;
 }
 
-
 /* For Desktops */
 @media (min-width: 600px) {
     .mainContainer {

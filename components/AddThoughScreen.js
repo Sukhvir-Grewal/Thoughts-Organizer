@@ -65,7 +65,7 @@ export default function AddThoughScreen({
     };
 
     const submitForm = (data, e) => {
-        const newData = { title: data.title, description: data.description };
+        const newData = { title: data.title, description: data.description, color: "black" };
         if (isEditing) {
             setThoughts((prevThoughts) =>
                 prevThoughts.map((item, index) =>

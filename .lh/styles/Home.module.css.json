@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 155,
+            "activePatchIndex": 156,
             "patches": [
                 {
                     "date": 1702415464078,
@@ -628,6 +628,10 @@
                 {
                     "date": 1702666201795,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -85,9 +85,8 @@\n     align-items: center;\n     color: white;\n     flex-direction: column;\n     cursor: pointer;\n-    animation: pop 5s ease-out;\n }\n \n .colorSelector{\n     display: flex;\n"
+                },
+                {
+                    "date": 1702993009044,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -116,9 +116,8 @@\n     opacity: 0;\n     transition: opacity 300ms ease-in;\n }\n \n-\n /* For Desktops */\n @media (min-width: 600px) {\n     .mainContainer {\n         width: 800px;\n"
                 }
             ],
             "date": 1702415464078,
